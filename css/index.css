@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    margin: 100px auto;
+    width: 400px;
+    height: 400px;
+    perspective: 800px;
+}
+
+.wrapper .picBox {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: .5s ease-in-out forwards;
+    transform-origin: 50% 50% -200px; /*设置picBox的旋转中心点，以x和y的中心为旋转中心，因为旋转过来的时候旋转过来的那一面靠前一半的距离*/
+}
+
+.wrapper .picBox .front, .wrapper .picBox .back {
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper .picBox .front {
+    background: url("../img/cy.jpg") top right no-repeat;
+    background-size: cover;
+}
+
+.wrapper .picBox .back {
+    position: absolute;
+    background-image: url("../img/fy.jpg");
+    background-position: -150px 0;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    transform: translate3d(0, 0, -1px);
+}
+
+.picBox.in-top .back,
+.picBox.out-top .back {
+    transform-origin: bottom; /*以底轴为旋转中心*/
+    transform: translate3d(0, -100%, 0) rotateX(90deg);
+}
+
+.picBox.in-top {
+    animation-name: in-top;
+}
+
+.picBox.out-top {
+    animation-name: out-top;
+}
+
+@keyframes in-top {
+    0% {
+        transform: rotateX(0deg);
+    }
+    100% {
+        transform: rotateX(-90deg);
+    }
+}
+
+@keyframes out-top {
+    0% {
+        transform: rotateX(-90deg);
+    }
+    100% {
+        transform: rotateX(0deg);
+    }
+}
+
+.picBox.in-bottom .back,
+.picBox.out-bottom .back {
+    transform-origin: top; /*以顶轴为旋转中心*/
+    transform: translate3d(0, 100%, 0) rotateX(-90deg);
+}
+
+.picBox.in-bottom {
+    animation-name: in-bottom;
+}
+
+.picBox.out-bottom {
+    animation-name: out-bottom;
+}
+
+@keyframes in-bottom {
+    0% {
+        transform: rotateX(0deg);
+    }
+    100% {
+        transform: rotateX(90deg);
+    }
+}
+
+@keyframes out-bottom {
+    0% {
+        transform: rotateX(90deg);
+    }
+    100% {
+        transform: rotateX(0deg);
+    }
+}
+
+.picBox.in-left .back,
+.picBox.out-left .back {
+    transform-origin: right; /*以左轴为旋转中心*/
+    transform: translate3d(-100%, 0, 0) rotateY(-90deg);
+}
+
+.picBox.in-left{
+    animation-name: in-left;
+}
+
+.picBox.out-left{
+    animation-name: out-left;
+}
+
+@keyframes in-left {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(90deg);
+    }
+}
+
+@keyframes out-left {
+    0% {
+        transform: rotateY(90deg);
+    }
+    100% {
+        transform: rotateY(0deg);
+    }
+}
+
+.picBox.in-right .back,
+.picBox.out-right .back {
+    transform-origin: left; /*以右轴为旋转中心*/
+    transform: translate3d(100%, 0, 0) rotateY(90deg);
+}
+
+.picBox.in-right {
+    animation-name: in-right;
+}
+
+.picBox.out-right {
+    animation-name: out-right;
+}
+
+@keyframes in-right {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(-90deg);
+    }
+}
+
+@keyframes out-right {
+    0% {
+        transform: rotateY(-90deg);
+    }
+    100% {
+        transform: rotateY(0deg);
+    }
+}
