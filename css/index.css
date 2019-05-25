@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: #fff;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+}
+
+.content .item {
+    width: 16%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: width .5s linear, height .5s linear .5s;
+}
+
+.item .inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.5s linear;
+    position: relative;
+}
+
+.item .bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0.7;
+}
+
+.item:nth-of-type(1) .bg {
+    background-image: url("../img/1.jpg");
+
+}
+
+.item:nth-of-type(2) .bg {
+    background-image: url("../img/2.jpg");
+}
+
+.item:nth-of-type(3) .bg {
+    background-image: url("../img/3.jpg");
+}
+
+.item:nth-of-type(4) .bg {
+    background-image: url("../img/4.jpg");
+}
+
+.item:nth-of-type(5) .bg {
+    background-image: url("../img/5.jpg");
+}
+
+.item:nth-of-type(6) .bg {
+    background-image: url("../img/6.jpg");
+}
+
+.item:nth-of-type(2) .inner {
+    transition-delay: .1s;
+}
+
+.item:nth-of-type(3) .inner {
+    transition-delay: .2s;
+}
+
+.item:nth-of-type(4) .inner {
+    transition-delay: .3s;
+}
+
+.item:nth-of-type(5) .inner {
+    transition-delay: .4s;
+}
+
+.item:nth-of-type(6) .inner {
+    transition-delay: .5s;
+}
+
+.init .item .inner {
+    transform: translate3d(0, 100%, 0);
+}
+
+.item .inner .title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    transition: opacity .5s linear 1s;
+}
+
+.inner .title h2 {
+    font-size: 14px;
+}
+
+.item:hover h2 {
+    font-size: 20px;
+    transition: font-size .2S linear;
+}
+
+.item:hover .bg {
+    opacity: 1;
+    transition: opacity .2s linear;
+}
+
+.item .des {
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    opacity: 0;
+}
+
+.item .des .header {
+    float: left;
+    margin-left: 30px;
+    line-height: 30px;
+}
+
+.item .des .close {
+    float: right;
+    margin-right: 30px;
+    width: 30px;
+    height: 30px;
+}
+
+.item .des .close::before, .item .des .close::after {
+    position: absolute;
+    top: 16px;
+    right: 30px;
+    width: 30px;
+    height: 2px;
+    content: '';
+    background-color: #fff;
+}
+
+.item .des .close::before {
+    transform: rotate(-45deg);
+}
+
+
+.item .des .close::after {
+    transform: rotate(45deg);
+}
+
+.wrapper-active .content .item {
+    transition: height .5s linear, width .5s linear .5s;
+}
+
+.wrapper-active .item.active {
+    width: 100%;
+}
+
+
+.wrapper-active .item .title {
+    opacity: 0;
+    transition: opacity .5s linear;
+}
+
+.wrapper-active .item .bg {
+    opacity: 1;
+    transition: opacity .5s linear;
+}
+
+.wrapper-active .item:not(.active) {
+    width: 0;
+    height: 0;
+}
+
+.item.active .des {
+    opacity: 1;
+    transition: opacity .2s linear 1s;
+}
